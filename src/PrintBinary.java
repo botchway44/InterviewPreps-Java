@@ -12,7 +12,22 @@ public class PrintBinary {
 		
 //		printBinaryDigits(2,"");
 //		printDecimalDigits(5,"");
-		permuteString("HII", "");
+		permuteString("world", "");
+		System.out.println(permutations);
+		
+		 HashSet<String> newperms = new HashSet<>();
+
+		for(String pair : permutations) {
+			for(String second : permutations) {
+				if(!characterExist(pair,second)) {
+					newperms.add(second);
+				}else {
+					newperms.add(second);
+				}
+			}
+		}
+		System.out.println(newperms);
+
 	}
 	
 	
@@ -54,18 +69,45 @@ public class PrintBinary {
 
 	private static void permuteString(String word, String prefix) {
 		if(word.length() == 0) {
-
-			System.out.println("Actual Permuation >>> "+prefix);
 			permutations.add(prefix);
 		}else {
 			
 			for(int i=0; i<word.length(); i++) {
 				char ch = word.charAt(i);
-				System.out.println("CH >> " + ch);
 				String s2 = word.substring(0,i) + word.substring(i+1);
-				System.out.println("STRING >> "+ s2);
 				permuteString(s2, prefix + ch);
 			}
 		}
+	}
+	
+	private static boolean characterExist(String one, String two) {
+		HashSet<Character>  temp  = new HashSet<Character>();
+		for(int i=0; i< two.length(); i++) {
+			temp.add(two.charAt(i));
+		}
+		
+		for(int i=0; i<one.length(); i++) {
+			if(temp.contains(one.charAt(i))) return true;
+		}
+		
+		return false;
+	}
+	
+	private static boolean unique(String one, String two) {
+		HashSet<Character>  temp_one  = new HashSet<Character>();
+		for(int i=0; i< one.length(); i++) {
+			temp_one.add(one.charAt(i));
+		}
+		
+		HashSet<Character>  temp_two  = new HashSet<Character>();
+		for(int i=0; i< two.length(); i++) {
+			temp_two.add(two.charAt(i));
+		}
+		
+		for(Character pair : temp_one) {
+			if(temp_two.contains(pair)) return false;
+		}
+		
+		return true;
 	}
 }
