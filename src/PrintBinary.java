@@ -13,20 +13,20 @@ public class PrintBinary {
 //		printBinaryDigits(2,"");
 //		printDecimalDigits(5,"");
 		permuteString("world", "");
-		System.out.println(permutations);
+		System.out.println(permutations.size());
 		
-		 HashSet<String> newperms = new HashSet<>();
-
-		for(String pair : permutations) {
-			for(String second : permutations) {
-				if(!characterExist(pair,second)) {
-					newperms.add(second);
-				}else {
-					newperms.add(second);
-				}
-			}
-		}
-		System.out.println(newperms);
+//		 HashSet<String> newperms = new HashSet<>();
+//
+//		for(String pair : permutations) {
+//			for(String second : permutations) {
+//				if(!characterExist(pair,second)) {
+//					newperms.add(second);
+//				}else {
+//					newperms.add(second);
+//				}
+//			}
+//		}
+//		System.out.println(newperms);
 
 	}
 	
@@ -68,6 +68,8 @@ public class PrintBinary {
 	static HashSet<String> permutations = new HashSet<>();
 
 	private static void permuteString(String word, String prefix) {
+		System.out.println("Prefix >> "+ prefix + " Word >> "+ word);
+
 		if(word.length() == 0) {
 			permutations.add(prefix);
 		}else {
@@ -75,6 +77,7 @@ public class PrintBinary {
 			for(int i=0; i<word.length(); i++) {
 				char ch = word.charAt(i);
 				String s2 = word.substring(0,i) + word.substring(i+1);
+				System.out.println("Rem >> "+ s2);
 				permuteString(s2, prefix + ch);
 			}
 		}

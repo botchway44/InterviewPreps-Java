@@ -24,19 +24,6 @@ public class SmallestPositiveInteger {
 				
 			}
 		}
-//		for(int pair : nums) {
-//			System.out.println("Found >> "+pair);
-//			nums
-//		}
-		
-//		for(int i=1; i<= nums.size(); i++) {
-//			if(!nums.contains(i)) {
-//				System.out.println("Found >> "+i);
-//				smallest = i;
-//			}else {
-//				System.out.println("Not Found >> "+ i);
-//			}
-//		}
 		
 		if(smallest == Integer.MIN_VALUE) {
 			smallest = nums.size()+1;
