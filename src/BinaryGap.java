@@ -12,8 +12,6 @@ public class BinaryGap {
 
 			System.out.println(binaryGap(printBinary(15)));
 
-
-			 
 	}
 	
 	
